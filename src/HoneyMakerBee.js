@@ -1,3 +1,22 @@
 var HoneyMakerBee = function() {
+  Bee.call(this),
+  this.age = 10,
+  this.job = 'make honey',
+  this.food = Grub.prototype.food,
+  this.honeyPot = 0
 };
+
+HoneyMakerBee.prototype = Object.create(Bee.prototype);
+HoneyMakerBee.prototype.constructor = HoneyMakerBee;
+HoneyMakerBee.prototype.makeHoney = function() {
+  this.honeyPot += 1;
+}
+HoneyMakerBee.prototype.giveHoney = function() {
+  this.honeyPot -= 1;
+}
+
+HoneyMakerBee.prototype.eat = Grub.prototype.eat;
+
+var honeymaker = new HoneyMakerBee();
+console.log(honeymaker);
 
